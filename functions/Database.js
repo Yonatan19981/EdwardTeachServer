@@ -1,6 +1,6 @@
 
   exports.handler = async function (event, context) {
-    const value = string(process.env.MONGO_URL);
+    const value = String(process.env.MONGO_URL);
     
     return {
       statusCode: 200,
