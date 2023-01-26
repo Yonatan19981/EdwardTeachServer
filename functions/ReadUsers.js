@@ -6,8 +6,9 @@ require('dotenv').config({ path: '../.env'});
 require('dotenv').config();
 const { MongoClient } = require("mongodb");
 // Replace the uri string with your connection string.
-console.log(uri)
 const uri =process.env.MONGO_URL ;
+console.log(uri)
+
 var client = new MongoClient(uri);
 
     try {
