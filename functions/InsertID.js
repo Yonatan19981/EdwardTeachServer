@@ -8,7 +8,7 @@ const supabaseKey = process.env.SUPABASE_SERVICE_API_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)
 console.log("Connected to DB")
 // Our standard serverless handler function
-exports.handler = async event => {
+exports.handler = async (event, context) => {
 
   // Insert a row
   const { data, error } = await supabase
