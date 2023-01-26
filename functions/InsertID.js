@@ -1,5 +1,5 @@
 // Grab our credentials from a .env file or environment variables
-require('dotenv').config();
+require('dotenv').config({ path: '../.env'});
 
 const { createClient } = require('@supabase/supabase-js');
 
