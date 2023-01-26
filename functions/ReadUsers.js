@@ -1,3 +1,6 @@
+
+// Our standard serverless handler function
+exports.handler = async event => {
 // Grab our credentials from a .env file or environment variables
 require('dotenv').config({ path: '../.env'});
 require('dotenv').config();
@@ -5,9 +8,6 @@ const { MongoClient } = require("mongodb");
 // Replace the uri string with your connection string.
 const uri =process.env.MONGO_URL ;
 var client = new MongoClient(uri);
-
-// Our standard serverless handler function
-exports.handler = async event => {
 
     try {
         const database = client.db('EdwardTeach');
