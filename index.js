@@ -1,7 +1,6 @@
-// Grab our credentials from a .env file or environment variables
-require('dotenv').config({ path: '../.env'});
-require('dotenv').config();
+
 const { MongoClient } = require("mongodb");
+require('dotenv').config();
 // Replace the uri string with your connection string.
 const uri =process.env.MONGO_URL ;
 var client = new MongoClient(uri);
