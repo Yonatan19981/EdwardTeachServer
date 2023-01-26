@@ -14,7 +14,7 @@ exports.handler = async event => {
         const userData = database.collection('UserData');
         try {
             //userData.insertOne( { item: "card", qty: 15 } );
-            const cursor = userData.find({ item: "card" });
+            const cursor = userData.find();
             await cursor.forEach(console.log);
             return cursor;
          } catch (e) {
