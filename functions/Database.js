@@ -1,26 +1,10 @@
-// Grab our credentials from a .env file or environment variables
-require('dotenv').config();
-const {
-    DATABASE_URL,
-    SUPABASE_SERVICE_API_KEY
-} = process.env;
 
-// Connect to our database 
-const { createClient } = require('@supabase/supabase-js');
-const supabase = createClient(DATABASE_URL, SUPABASE_SERVICE_API_KEY);
-
-// Our standard serverless handler function
-exports.handler = async event => {
-
-  // Insert a row
-    const { data, error } = await supabase
-        .from('notes')
-        .insert([
-            { note: 'I need to not forget this' },
-        ]);
-
-  // Did it work?
+  exports.handler = async function (event, context) {
+    const value = string(process.env.MONGO_URL);
+    
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: `Value of MONGO_URL is ${value}.` }),
+    };  
+  };
   
-  console.log(data, error);
-  
-}

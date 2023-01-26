@@ -1,9 +1,10 @@
-// functions/hello.js
-exports.handler = async event => {
-    const subject = event.queryStringParameters.name || 'World'
+
+  exports.handler = async function (event, context) {
+    const value = process.env.MONGO_URL;
+  
     return {
       statusCode: 200,
-      body: `Hello ${subject}!`,
-    }
-  }
+      body: JSON.stringify({ message: `Value of MONGO_URL is ${value}.` }),
+    };  
+  };
   
