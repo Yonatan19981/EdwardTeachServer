@@ -61,7 +61,8 @@ exports.usersRouter.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, 
 // POST
 exports.usersRouter.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const newUser = req.body;
+        const newUser = yield req.body;
+        console.log(newUser);
         const result = yield database_service_1.collections.users.insertOne(newUser);
         result
             ? res.status(201).send(`Successfully created a new user with id ${result.insertedId}`)

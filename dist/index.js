@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const database_service_1 = require("./services/database.service");
 const users_router_1 = require("./routes/users.router");
-const app = express_1.default();
+const app = (0, express_1.default)();
 const port = 8080; // default port to listen
-database_service_1.connectToDatabase()
+(0, database_service_1.connectToDatabase)()
     .then(() => {
     app.use("/users", users_router_1.usersRouter);
     app.listen(port, () => {
