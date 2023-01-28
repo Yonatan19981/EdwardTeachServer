@@ -38,10 +38,12 @@ exports.collections = {};
 function connectToDatabase() {
     return __awaiter(this, void 0, void 0, function* () {
         dotenv.config();
+        console.log("trying to connect");
         const client = new mongoDB.MongoClient(process.env.DB_CONN_STRING);
         yield client.connect();
-        const db = client.db(process.env.DB_NAME);
-        const usersCollection = db.collection(process.env.GAMES_COLLECTION_NAME);
+        console.log("connected");
+        const db = client.db("EdwardTeach");
+        const usersCollection = db.collection("UserData");
         exports.collections.users = usersCollection;
         console.log(`Successfully connected to database: ${db.databaseName} and collection: ${usersCollection.collectionName}`);
     });

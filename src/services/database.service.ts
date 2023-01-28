@@ -8,14 +8,13 @@ export const collections: { users?: mongoDB.Collection } = {}
 // Initialize Connection
 export async function connectToDatabase () {
     dotenv.config();
- 
-    const client: mongoDB.MongoClient = new mongoDB.MongoClient(process.env.DB_CONN_STRING);
-            
+    console.log("trying to connect")
+    const client: mongoDB.MongoClient = new mongoDB.MongoClient(process.env.DB_CONN_STRING);  
     await client.connect();
-        
-    const db: mongoDB.Db = client.db(process.env.DB_NAME);
+    console.log("connected")
+    const db: mongoDB.Db = client.db("EdwardTeach");
    
-    const usersCollection: mongoDB.Collection = db.collection(process.env.GAMES_COLLECTION_NAME);
+    const usersCollection: mongoDB.Collection = db.collection("UserData");
  
   collections.users = usersCollection;
        

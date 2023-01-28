@@ -54,7 +54,8 @@ usersRouter.get("/:id", async (req: Request, res: Response) => {
 
 usersRouter.post("/", async (req: Request, res: Response) => {
     try {
-        const newUser= req.body as User;
+        const newUser= await req.body;
+        console.log(newUser)
         const result = await collections.users.insertOne(newUser);
 
         result
